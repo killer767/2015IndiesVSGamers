@@ -32,7 +32,7 @@ public class RandomNumber : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if(other.tag == "Ball"){
 			Score_Black.AddScore_(number);
-			GameObject.Find("Basketball_Black").GetComponent<AudioSource>().Play();
+			other.GetComponent<AudioSource>().Play();
 		}
 	}
 }
