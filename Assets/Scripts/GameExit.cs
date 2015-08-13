@@ -11,9 +11,7 @@ public class GameExit : MonoBehaviour {
 	
 	void Update () {
 		if(Input.GetKey(KeyCode.Q)){
-			Application.LoadLevel(0);
 			isExit = true;
-			Debug.Log("fuck");
 		}
 	}
 }

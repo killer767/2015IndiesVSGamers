@@ -7,7 +7,7 @@ public class TotalScore : MonoBehaviour {
 	int totalScore = 0;
 
 	void Start () {
-		totalScore = Score_Blue.nowScore_Blue + Score_Red.nowScore_Red + Score_Black.nowScore_Black;
+		totalScore = Score.nowScoreBlue + Score.nowScoreRed + Score.nowScoreBlack;
 		Debug.Log(totalScore);
 		GetComponent<Text> ().text = "Total Score: " + totalScore.ToString ();
 		#if UNITY_WEBGL || UNITY_WEBPLAYER

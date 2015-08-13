@@ -2,30 +2,36 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class BallSpawner_Red : MonoBehaviour {
+public class BallSpawner : MonoBehaviour {
 
 	[SerializeField] GameObject ball;
 	public float speed;
 	public float leftBorder, rightBorder;
-
+	
+	public static bool isStart;
 	float x;
 	bool holdFire = false;
-	public static bool isStart = false;
-
+	
 	void Start () {
 		x = -0.5f;
 		isStart = false;
+		GameExit.isExit = false;
 		GameObject.Find("GameStart").GetComponent<Text>().enabled = true;
 		GameObject.Find("Comment").GetComponent<Text>().enabled = true;
+		
 	}
 	
 	void FixedUpdate () {
 		if(Input.GetKey(KeyCode.S) || isStart){
 			GameObject.Find("GameStart").GetComponent<Text>().enabled = false;
 			GameObject.Find("Comment").GetComponent<Text>().enabled = false;
-			GameObject.Find("Object001").GetComponent<Animator>().SetTrigger("Move");
-			isStart = true;
 
+			if(GameObject.Find("TheColor").tag == "Red"){
+				GameObject.Find("Object001").GetComponent<Animator>().SetTrigger("Move");
+			}
+
+			isStart = true;
+			
 			if(Input.GetKey(KeyCode.A)){
 				x -= speed;
 			}
@@ -34,17 +40,17 @@ public class BallSpawner_Red : MonoBehaviour {
 			}
 			x = Mathf.Clamp(x, leftBorder, rightBorder);
 			transform.position = new Vector3(x, transform.position.y, transform.position.z);
-
+			
 			if(!holdFire && Input.GetKeyDown(KeyCode.Space)){
 				StartCoroutine("Spanwer");
 			}
-			if(Timer_Red.timesup == true){
+			if(Timer.timesup == true){
 				holdFire = true;
 				GameObject.Find("TimesUp").GetComponent<Text>().enabled = true;
 			}
 		}
 	}
-
+	
 	IEnumerator Spanwer(){
 		GameObject bullet = (GameObject)Instantiate (
 			ball,
@@ -54,10 +60,10 @@ public class BallSpawner_Red : MonoBehaviour {
 		bullet.GetComponent<Rigidbody>().AddForce(new Vector3(0, 300f, 300f));
 		holdFire = true;
 		GameObject.Find("BallDefault").GetComponent<MeshRenderer>().enabled = false;
-
+		
 		yield return new WaitForSeconds (.5f);
 		holdFire = false;
 		GameObject.Find("BallDefault").GetComponent<MeshRenderer>().enabled = true;
-
+		
 	}
 }
