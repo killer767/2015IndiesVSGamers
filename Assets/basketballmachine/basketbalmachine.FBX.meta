@@ -1,32 +1,32 @@
 fileFormatVersion: 2
-guid: fb66f6c281f8bda45b051eb65b06bb1a
-timeCreated: 1437300406
+guid: 066be1e1617ce54459349c2b05315bb2
+timeCreated: 1440036336
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: basketball arcade machine
     100002: //RootNode
-    100004: Plane007
-    100006: Plane011
-    100008: Torus001
+    100004: Object001
+    100006: Plane007
+    100008: Plane011
     400000: basketball arcade machine
     400002: //RootNode
-    400004: Plane007
-    400006: Plane011
-    400008: Torus001
+    400004: Object001
+    400006: Plane007
+    400008: Plane011
     2300000: basketball arcade machine
-    2300002: Plane007
-    2300004: Plane011
-    2300006: Torus001
+    2300002: Object001
+    2300004: Plane007
+    2300006: Plane011
     3300000: basketball arcade machine
-    3300002: Plane007
-    3300004: Plane011
-    3300006: Torus001
+    3300002: Object001
+    3300004: Plane007
+    3300006: Plane011
     4300000: basketball arcade machine
     4300002: Plane007
-    4300004: Torus001
-    4300006: Plane011
+    4300004: Plane011
+    4300006: Object001
   materials:
     importMaterials: 1
     materialName: 0
